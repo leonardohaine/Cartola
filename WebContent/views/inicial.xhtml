@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<link rel="stylesheet" type="text/css" href="./css.css" />  
+	<title>Controle de material de laboratório</title>
+</h:head>
+<h:body>
+	<style type="text/css">
+.ui-widget {
+	font-size: 12px !important;
+}
+</style>
+	<p:growl id="messages" />
+	<p:layout fullPage="true" gutter="0" styleClass="backLayout" >
+		<p:layoutUnit position="north" size="60" resizable="false" gutter="0" 
+			closable="false" collapsible="true">
+			
+		</p:layoutUnit>
+		<p:layoutUnit position="south" size="25" resizable="false" gutter="0"
+			closable="false" collapsible="true">
+			<p:outputLabel value="Copyright © 2016, ControlMatLab. Todos os direitos reservados."></p:outputLabel>
+			
+		</p:layoutUnit>
+		<p:layoutUnit position="west" size="200px" resizable="true" gutter="0"
+			closable="false" collapsible="true" effect="drop">
+			<ui:include src="menu.xhtml" />
+		</p:layoutUnit>
+		<p:layoutUnit position="center" gutter="0">
+			<ui:insert name="conteudo" />
+		</p:layoutUnit>
+	</p:layout>
+</h:body>
+</html>

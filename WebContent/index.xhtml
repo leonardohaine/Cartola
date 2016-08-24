@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>CARTOLA - COPA VÁRZEA 2016</title>
+        <link rel="stylesheet" type="text/css" href="./css.css" />  
+        <link rel="stylesheet" type="image/ico" href="./favicon.ico" />
+        
+        <script type="text/javascript">  
+			function handleLoginRequest(xhr, status, args) {  
+				if(args.validationFailed || !args.loggedIn) {  
+					PF('dlg').jq.effect("explode", { times:5 }, 100);
+				}   
+				else {  
+					PF('dlg').hide();  
+					$('#loginLink').fadeOut();
+					window.location.assign("./views/inicial.jsf");
+				}  
+			}  
+		</script> 
+        
+    </h:head>
+
+	<h:body style="font-size: 12px; background: white; font-color: black;">
+    	<div align="center">
+        
+        <h:form id="formNf" >
+        	<br/><br/>
+			<font style="font-size: 80px;" color="black"></font><br/>
+			<h:outputLink id="loginLink" value="javascript:void(0)" onclick="PF('dlg').show();" title="Clique para entrar"> 
+            	<p:graphicImage value="./imagens/logo_nfx.gif" width="450" height="150" />
+           	</h:outputLink>
+           	
+           	<p:growl id="growl" showDetail="true" life="3000" />
+  
+        <p:dialog id="dialog" header="Login"  widgetVar="dlg" resizable="false">
+  
+	        <h:panelGrid columns="2" cellpadding="5">  
+	            <p:outputLabel for="username" value="Usuário:" />  
+	            <p:inputText value="#{auth.user}" style="border-radius: 5px;"  
+	                    id="username" required="true" label="username" />  
+	              
+	            <p:outputLabel for="password" value="Senha:" />  
+	            <p:password value="#{auth.senha}"   
+	                    id="password" required="true" label="password" />  
+	            
+	            <f:facet name="footer">
+	                <div style="text-align: right;">   
+	                <p:commandButton id="loginButton" value="Login" update="growl" oncomplete="handleLoginRequest(xhr, status, args)"
+	                                 actionListener="#{auth.login}" />
+	                </div> 
+	            </f:facet>
+	               
+	        </h:panelGrid>  
+	          
+	    </p:dialog>
+           	
+	    </h:form>
+	    
+        <p:ajaxStatus style="width:32px;height:32px;" id="ajaxStatusPanel">  
+            <f:facet name="start">  
+                <h:graphicImage value="./imagens/loader1.gif" />  
+            </f:facet>  
+
+            <f:facet name="complete">  
+                <h:outputText value="" />  
+            </f:facet>  
+        </p:ajaxStatus>
+    </div>    
+    
+    
+    
+</h:body>    
+</html>
