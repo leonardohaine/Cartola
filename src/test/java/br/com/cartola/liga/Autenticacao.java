@@ -108,7 +108,7 @@ public class Autenticacao {
 			for(Time t : liga.getTimes()){
 				System.out.println("Times: " + t.getNome() + " - " +
 								   "Pontos: " + String.format("%1$,.2f", t.getPontos().getCampeonato()) + " - " +
-								   "Atual: " + String.format("%1$,.2f", t.getPontos().getRodada()));
+								   "Rodada anterior: " + String.format("%1$,.2f", t.getPontos().getRodada()));
 			}
 			
 		
