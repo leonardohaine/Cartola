@@ -67,7 +67,7 @@ public class Autenticacao {
 		}else if(clazz instanceof Liga){
 			Liga liga = mapper.readValue(jsonInString, Liga.class);
 			clazz = liga;
-			System.out.println("Liga: " + liga.getDestaques().getRodada().getNome());
+			System.out.println("Destaque: " + liga.getDestaques().getRodada().getNome());
 		}
 		return clazz;
 	}
